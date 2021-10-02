@@ -1,4 +1,4 @@
-package com.dominik.restservices.models;
+package com.dominik.restservices.entities;
 
 public class Greeting {
 

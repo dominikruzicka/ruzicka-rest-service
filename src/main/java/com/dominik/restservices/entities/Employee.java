@@ -1,4 +1,4 @@
-package com.dominik.restservices.models;
+package com.dominik.restservices.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "employees")
-public class Employees implements Serializable {
+public class Employee implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id

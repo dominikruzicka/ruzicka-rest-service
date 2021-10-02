@@ -1,6 +1,6 @@
 package com.dominik.restservices.controllers;
 
-import com.dominik.restservices.models.Greeting;
+import com.dominik.restservices.entities.Greeting;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
