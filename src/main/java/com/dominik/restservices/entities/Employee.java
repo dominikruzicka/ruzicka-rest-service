@@ -1,5 +1,7 @@
 package com.dominik.restservices.entities;
 
+import com.dominik.restservices.services.Response;
+
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -7,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "employees")
-public class Employee implements Serializable {
+public class Employee implements Serializable, Response {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -81,7 +83,7 @@ public class Employee implements Serializable {
 
     @Override
     public String toString() {
-        return "Employees{" +
+        return "Employee{" +
                 "emp_id=" + emp_id +
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
@@ -91,4 +93,15 @@ public class Employee implements Serializable {
                 ", record_created_date=" + record_created_date +
                 '}';
     }
+
+    public String toStringNoColsAddedByDB() {
+        return "Employees{" +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", birth_date=" + birth_date +
+                ", department='" + department + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
 }

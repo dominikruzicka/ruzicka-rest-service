@@ -11,8 +11,9 @@ import static com.dominik.restservices.RestServiceApplication.ENTITY_MANAGER_FAC
 
 public class EmployeeService {
 
+    ErrorResponse errorResponse = new ErrorResponse();
 
-    public void addEmployee(String first_name, String last_name, Date birth_date, String department, String email){
+    public String addEmployee(String first_name, String last_name, Date birth_date, String department, String email){
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction entityTransaction = null;
         Employee employee = null;
@@ -27,36 +28,36 @@ public class EmployeeService {
             employee.setEmail(email);
             entityManager.persist(employee);
             entityTransaction.commit();
+            return "Employee successfully added";
         } catch(Exception e){
             if(entityTransaction != null){
                 entityTransaction.rollback();
             }
             e.printStackTrace();
+            return "Error when inserting employee: " + employee.toString();
         } finally {
             entityManager.close();
         }
     }
 
-    public Employee getEmployeeById(int emp_id) {
+    public Response getEmployeeById(int emp_id) {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         String strQuery = "SELECT emp FROM Employee emp WHERE emp.emp_id = :employeeId";
 
         TypedQuery<Employee> typedQuery = entityManager.createQuery(strQuery, Employee.class);
         typedQuery.setParameter("employeeId", emp_id);
-        Employee employee = typedQuery.getSingleResult();
-        return employee;
-    }
-        /*
+        Employee employee = null;
         try{
             employee = typedQuery.getSingleResult();
             return employee;
         } catch (NoResultException e){
             e.printStackTrace();
+            return errorResponse;
         } finally {
             entityManager.close();
         }
     }
-    */
+
 
 
     public List<Employee> getEmployees() {

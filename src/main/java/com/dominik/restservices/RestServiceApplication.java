@@ -28,8 +28,6 @@ public class RestServiceApplication {
     private static HashMap getProperties() {
         HashMap result = new HashMap();
 
-        // Read the properties from a file instead of hard-coding it here.
-        // Or pass the password in from the command-line.
         result.put("javax.persistence.jdbc.user", System.getenv("MYSQL_USERNAME"));
         result.put( "javax.persistence.jdbc.password", System.getenv("MYSQL_PASSWORD"));
         result.put("javax.persistence.jdbc.url", System.getenv("MYSQL_URL"));
@@ -38,20 +36,7 @@ public class RestServiceApplication {
     }
 
 
-
-    public static void getEmployeeById(int emp_id) {
-        EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
-        String strQuery = "SELECT emp FROM Employee emp WHERE emp.emp_id = :employeeId";
-
-        TypedQuery<Employee> typedQuery = entityManager.createQuery(strQuery, Employee.class);
-        typedQuery.setParameter("employeeId", emp_id);
-        Employee employee = typedQuery.getSingleResult();
-        System.out.println(employee.toString());
-        ;
-    }
-
-
-
+/*
     public static void changeFirstNameEmployee(int emp_id, String first_name){
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction entityTransaction = null;
@@ -92,6 +77,6 @@ public class RestServiceApplication {
             entityManager.close();
         }
     }
-
+*/
 
 }
