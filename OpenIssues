@@ -6,6 +6,7 @@
  - + make better error and valid response structure
 
  - create another DB for production (now have just one for both environments
+ -  set correct time in DB for record_created_date (it CR minus 2 hours)
 
  - ENTITY_MANAGER_FACTORY -> when to close it?
  - Hibernate vs Spring Data -> differences, which one is better to use?
