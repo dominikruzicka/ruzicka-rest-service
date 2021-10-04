@@ -4,7 +4,6 @@ import com.dominik.restservices.entities.Employee;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.HashMap;
 import java.util.List;
 
 import static com.dominik.restservices.RestServiceApplication.ENTITY_MANAGER_FACTORY;
@@ -12,6 +11,7 @@ import static com.dominik.restservices.RestServiceApplication.ENTITY_MANAGER_FAC
 public class EmployeeService {
 
     ErrorResponse errorResponse = new ErrorResponse();
+    ValidResponse validResponse = new ValidResponse();
 
     public String addEmployee(String first_name, String last_name, Date birth_date, String department, String email){
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
@@ -79,6 +79,26 @@ public class EmployeeService {
     }
 */
 
-
+    public Response deleteEmployee(int id){
+        EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction entityTransaction = null;
+        Employee employee = null;
+        try{
+            entityTransaction = entityManager.getTransaction();
+            entityTransaction.begin();
+            employee = entityManager.find(Employee.class, id);
+            entityManager.remove(employee);
+            entityTransaction.commit();
+            return validResponse;
+        } catch(Exception e){
+            if(entityTransaction != null){
+                entityTransaction.rollback();
+            }
+            e.printStackTrace();
+            return errorResponse;
+        } finally {
+            entityManager.close();
+        }
+    }
 
     }

@@ -58,25 +58,7 @@ public class RestServiceApplication {
         }
     }
 
-    public static void deleteEmployee(int id){
-        EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
-        EntityTransaction entityTransaction = null;
-        Employee employee = null;
-        try{
-            entityTransaction = entityManager.getTransaction();
-            entityTransaction.begin();
-            employee = entityManager.find(Employee.class, id);
-            entityManager.remove(employee);
-            entityTransaction.commit();
-        } catch(Exception e){
-            if(entityTransaction != null){
-                entityTransaction.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            entityManager.close();
-        }
-    }
+
 */
 
 }

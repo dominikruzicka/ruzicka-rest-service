@@ -1,7 +1,7 @@
  !!! - change Postman requests to call real Heroku server, export requests and upload to Github !!!
- !!! - truncate DB, create few records, check and maybe reset autoincrement, update requests in Postman according to new DB
+ !!! - truncate DB, create few records, -
 
-
+ - make "public List<Employee> getEmployees()" be capable of returning Error as well
  - differentiate ErrorResponse return value by methods that return this class (now is the same for all methods "Operation failed")
 
 
