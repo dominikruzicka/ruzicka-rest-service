@@ -18,11 +18,9 @@ public class RestServiceApplication {
 
     public static void main(String[] args) {
 
-
 		SpringApplication.run(RestServiceApplication.class, args);
 
         //ENTITY_MANAGER_FACTORY.close(); // problem - closes too early, when to close it?
-
     }
 
     private static HashMap getProperties() {
@@ -34,31 +32,5 @@ public class RestServiceApplication {
 
         return result;
     }
-
-
-/*
-    public static void changeFirstNameEmployee(int emp_id, String first_name){
-        EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
-        EntityTransaction entityTransaction = null;
-        Employee employee = null;
-        try{
-            entityTransaction = entityManager.getTransaction();
-            entityTransaction.begin();
-            employee = entityManager.find(Employee.class, emp_id);
-            employee.setFirst_name(first_name);
-            entityManager.persist(employee);
-            entityTransaction.commit();
-        } catch(Exception e){
-            if(entityTransaction != null){
-                entityTransaction.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            entityManager.close();
-        }
-    }
-
-
-*/
 
 }

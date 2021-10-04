@@ -1,6 +1,7 @@
 package com.dominik.restservices.entities;
 
 import com.dominik.restservices.services.Response;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
 import java.sql.Date;

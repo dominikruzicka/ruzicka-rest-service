@@ -13,7 +13,7 @@ public class EmployeeService {
     ErrorResponse errorResponse = new ErrorResponse();
     ValidResponse validResponse = new ValidResponse();
 
-    public String addEmployee(String first_name, String last_name, Date birth_date, String department, String email){
+    public Response addEmployee(String first_name, String last_name, Date birth_date, String department, String email){
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction entityTransaction = null;
         Employee employee = null;
@@ -28,13 +28,13 @@ public class EmployeeService {
             employee.setEmail(email);
             entityManager.persist(employee);
             entityTransaction.commit();
-            return "Employee successfully added";
+            return validResponse;
         } catch(Exception e){
             if(entityTransaction != null){
                 entityTransaction.rollback();
             }
             e.printStackTrace();
-            return "Error when inserting employee: " + employee.toString();
+            return errorResponse;
         } finally {
             entityManager.close();
         }
@@ -101,4 +101,28 @@ public class EmployeeService {
         }
     }
 
+
+    public Response changeFirstName(int emp_id, String first_name){
+        EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction entityTransaction = null;
+        Employee employee = null;
+        try{
+            entityTransaction = entityManager.getTransaction();
+            entityTransaction.begin();
+            employee = entityManager.find(Employee.class, emp_id);
+            employee.setFirst_name(first_name);
+            entityManager.persist(employee);
+            entityTransaction.commit();
+            return validResponse;
+        } catch(Exception e){
+            if(entityTransaction != null){
+                entityTransaction.rollback();
+            }
+            e.printStackTrace();
+            return errorResponse;
+        } finally {
+            entityManager.close();
+        }
     }
+
+}
