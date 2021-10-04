@@ -1,0 +1,10 @@
+ !!! - change Postman requests to call real Heroku server, export requests and upload to Github !!!
+ !!! - truncate DB, create few records, check and maybe reset autoincrement, update requests in Postman according to new DB
+
+
+ - differentiate ErrorResponse return value by methods that return this class (now is the same for all methods "Operation failed")
+
+
+ - ENTITY_MANAGER_FACTORY -> when to close it?
+ - Hibernate vs Spring Data -> differences, which one is better to use?
+ - Implement DTO (Data Transfer Object)

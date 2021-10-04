@@ -2,9 +2,7 @@ package com.dominik.restservices.controllers;
 
 import com.dominik.restservices.entities.Employee;
 import com.dominik.restservices.services.EmployeeService;
-import com.dominik.restservices.services.EmployeeServiceNotInUse;
 import com.dominik.restservices.services.Response;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
