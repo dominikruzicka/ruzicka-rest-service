@@ -1,8 +1,12 @@
 package com.dominik.restservices;
 
 import com.dominik.restservices.entities.Employee;
+import com.dominik.restservices.entities.Task;
+import com.dominik.restservices.repository.TaskRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
@@ -21,6 +25,14 @@ public class RestServiceApplication {
 		SpringApplication.run(RestServiceApplication.class, args);
 
         //ENTITY_MANAGER_FACTORY.close(); // problem - closes too early, when to close it?
+    }
+
+    @Bean
+    CommandLineRunner commandLineRunner(TaskRepository taskRepository){
+        return args -> {
+            Task task = new Task();
+          taskRepository.save(task);
+        };
     }
 
     private static HashMap getProperties() {

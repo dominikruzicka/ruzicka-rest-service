@@ -21,6 +21,7 @@ public class EmployeeService {
             entityTransaction = entityManager.getTransaction();
             entityTransaction.begin();
             employee = new Employee();
+            //employee.setId();
             employee.setFirst_name(first_name);
             employee.setLast_name(last_name);
             employee.setBirth_date(birth_date);
@@ -40,12 +41,12 @@ public class EmployeeService {
         }
     }
 
-    public Response getEmployeeById(int emp_id) {
+    public Response getEmployeeById(int id) {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
-        String strQuery = "SELECT emp FROM Employee emp WHERE emp.emp_id = :employeeId";
+        String strQuery = "SELECT emp FROM Employee emp WHERE emp.id = :employeeId";
 
         TypedQuery<Employee> typedQuery = entityManager.createQuery(strQuery, Employee.class);
-        typedQuery.setParameter("employeeId", emp_id);
+        typedQuery.setParameter("employeeId", id);
         Employee employee = null;
         try{
             employee = typedQuery.getSingleResult();
@@ -62,7 +63,7 @@ public class EmployeeService {
 
     public List<Employee> getEmployees() {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
-        String strQuery = "SELECT emp FROM Employee emp WHERE emp.emp_id IS NOT NULL";
+        String strQuery = "SELECT emp FROM Employee emp WHERE emp.id IS NOT NULL";
         TypedQuery<Employee> typedQuery = entityManager.createQuery(strQuery, Employee.class);
         List<Employee> employees = typedQuery.getResultList();
         return employees;
@@ -102,14 +103,14 @@ public class EmployeeService {
     }
 
 
-    public Response changeFirstName(int emp_id, String first_name){
+    public Response changeFirstName(int id, String first_name){
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction entityTransaction = null;
         Employee employee = null;
         try{
             entityTransaction = entityManager.getTransaction();
             entityTransaction.begin();
-            employee = entityManager.find(Employee.class, emp_id);
+            employee = entityManager.find(Employee.class, id);
             employee.setFirst_name(first_name);
             entityManager.persist(employee);
             entityTransaction.commit();

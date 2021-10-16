@@ -1,7 +1,6 @@
 package com.dominik.restservices.entities;
 
 import com.dominik.restservices.services.Response;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -9,13 +8,12 @@ import java.sql.Timestamp;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "employee")
 public class Employee implements Serializable, Response {
-    private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "emp_id", nullable = false)
-    private int emp_id;
+    @Column(name = "id", nullable = false) //add  'updatable = false' after creatinf ID generator as in Task
+    private int id;
 
     @Column(name = "first_name", nullable = false)
     private String first_name;
@@ -35,8 +33,12 @@ public class Employee implements Serializable, Response {
     @Column(name = "record_created_date", nullable = true)
     private Timestamp record_created_date; //Is it the best datatype? Check later
 
-    public int getEmp_id() {
-        return emp_id;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirst_name() {
@@ -85,7 +87,7 @@ public class Employee implements Serializable, Response {
     @Override
     public String toString() {
         return "Employee{" +
-                "emp_id=" + emp_id +
+                "emp_id=" + id +
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", birth_date=" + birth_date +
