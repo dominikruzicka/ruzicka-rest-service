@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 //@RequestMapping("/employees") //add later and edit also postman requests
 public class EmployeeController {
-
+/*
     private EmployeeService employeeService = new EmployeeService();
 
     //http://localhost:8080/getEmployee/225
@@ -48,5 +48,5 @@ public class EmployeeController {
                                     @RequestParam String firstName){
         return employeeService.changeFirstName(id, firstName);
     }
-
+*/
 }

@@ -6,10 +6,10 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
-import static com.dominik.restservices.RestServiceApplication.ENTITY_MANAGER_FACTORY;
+//import static com.dominik.restservices.RestServiceApplication.ENTITY_MANAGER_FACTORY;
 
 public class EmployeeService {
-
+/*
     ErrorResponse errorResponse = new ErrorResponse();
     ValidResponse validResponse = new ValidResponse();
 
@@ -68,6 +68,7 @@ public class EmployeeService {
         List<Employee> employees = typedQuery.getResultList();
         return employees;
     }
+*/
         /*
         try{
             employees = typedQuery.getResultList();
@@ -79,7 +80,7 @@ public class EmployeeService {
         }
     }
 */
-
+/*
     public Response deleteEmployee(int id){
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction entityTransaction = null;
@@ -123,7 +124,9 @@ public class EmployeeService {
             return errorResponse;
         } finally {
             entityManager.close();
+
+
         }
     }
-
+*/
 }

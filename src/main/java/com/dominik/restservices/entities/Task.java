@@ -18,7 +18,7 @@ public class Task {
             generator = "task_sequence"
     )
     @Column(name = "id", nullable = false, updatable = false)
-    private int id;
+    private Integer id;
 
     @Column(name = "category", nullable = false)
     private String category;
