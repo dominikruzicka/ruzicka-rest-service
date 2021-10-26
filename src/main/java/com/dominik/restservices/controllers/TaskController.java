@@ -4,9 +4,9 @@ import com.dominik.restservices.entities.Task;
 import com.dominik.restservices.services.Response;
 import com.dominik.restservices.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TaskController {
@@ -17,6 +17,11 @@ public class TaskController {
     @GetMapping("/getTaskById/{id}")
     public Task getTaskByID(@PathVariable int id) {
         return taskService.getTaskById(id);
+    }
+
+    @PostMapping("/saveTask")
+    public ResponseEntity<Task> saveTask(@RequestBody Task task){
+        return taskService.saveTask(task);
     }
 
 

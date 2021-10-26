@@ -1,5 +1,7 @@
 package com.dominik.restservices.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -10,15 +12,15 @@ public class Task {
 
     @Id
     @SequenceGenerator(name = "task_sequence",
-                       sequenceName = "task_sequence",
+                       sequenceName = "task_seq",
                        allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "task_sequence"
+            generator = "task_seq"
     )
     @Column(name = "id", nullable = false, updatable = false)
-    private Integer id;
+    private int id;
 
     @Column(name = "category", nullable = false)
     private String category;
@@ -27,9 +29,10 @@ public class Task {
     private String description;
 
     @Column(name = "assigned_emp", nullable = false)
-    private String assigned_emp;
+    private int assigned_emp;
 
     @Column(name = "task_finish_date", nullable = false)
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
     private Date task_finish_date;
 
     @Column(name = "record_created_date", nullable = true)
@@ -38,12 +41,12 @@ public class Task {
     public Task() {
     }
 
-    public Task(String category, String description, String assigned_emp, Date task_finish_date, Timestamp record_created_date) {
+    public Task(String category, String description, int assigned_emp, Date task_finish_date/*,Timestamp record_created_date*/) {
         this.category = category;
         this.description = description;
         this.assigned_emp = assigned_emp;
         this.task_finish_date = task_finish_date;
-        this.record_created_date = record_created_date;
+       // this.record_created_date = record_created_date;
     }
 
     public int getId() {
@@ -70,11 +73,11 @@ public class Task {
         this.description = description;
     }
 
-    public String getAssigned_emp() {
+    public int getAssigned_emp() {
         return assigned_emp;
     }
 
-    public void setAssigned_emp(String assigned_emp) {
+    public void setAssigned_emp(int assigned_emp) {
         this.assigned_emp = assigned_emp;
     }
 
