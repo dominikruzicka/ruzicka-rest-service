@@ -11,13 +11,13 @@ import java.sql.Timestamp;
 public class Task {
 
     @Id
-    @SequenceGenerator(name = "task_sequence",
+    @SequenceGenerator(name = "generator_task_sequence",
                        sequenceName = "task_seq",
                        allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "task_seq"
+            generator = "generator_task_sequence"
     )
     @Column(name = "id", nullable = false, updatable = false)
     private int id;
@@ -41,12 +41,11 @@ public class Task {
     public Task() {
     }
 
-    public Task(String category, String description, int assigned_emp, Date task_finish_date/*,Timestamp record_created_date*/) {
+    public Task(String category, String description, int assigned_emp, Date task_finish_date) {
         this.category = category;
         this.description = description;
         this.assigned_emp = assigned_emp;
         this.task_finish_date = task_finish_date;
-       // this.record_created_date = record_created_date;
     }
 
     public int getId() {

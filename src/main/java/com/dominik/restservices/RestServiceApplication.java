@@ -11,12 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import javax.persistence.*;
 import java.util.HashMap;
 
-@EnableJpaRepositories("com.dominik.restservices.repository")
-@ComponentScan(basePackages = {"com.dominik.restservices.repository",
-                               "com.dominik.restservices.controllers",
-                               "com.dominik.restservices.services"})
 @SpringBootApplication
-//@EnableJpaRepositories
 public class RestServiceApplication {
 
   //  public static EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("restservices", getProperties());
@@ -25,10 +20,7 @@ public class RestServiceApplication {
 
 		SpringApplication.run(RestServiceApplication.class, args);
 
-
-        //ENTITY_MANAGER_FACTORY.close(); // problem - closes too early, when to close it?
     }
-
 
     private static HashMap getProperties() {
         HashMap result = new HashMap();

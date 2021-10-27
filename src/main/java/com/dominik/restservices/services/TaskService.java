@@ -25,12 +25,18 @@ public class TaskService {
         return taskRepository.findById(id).orElse(null);
     }
 
-    public ResponseEntity<Task> saveTask(Task task){
-        if(task != null) {
+    public ResponseEntity<Object> saveTask(Task task){
+       String responseBody;
+        if(task.getCategory() != null
+            && task.getDescription() != null
+            && task.getAssigned_emp() != 0
+            && task.getTask_finish_date() != null) {
             taskRepository.save(task);
-            return ResponseEntity.ok(task);
+            responseBody = "Task successfully saved with id: " + task.getId();
+            return ResponseEntity.ok(responseBody);
         } else {
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            responseBody = "Incorrect request - validate your request body";
+            return new ResponseEntity(responseBody, HttpStatus.BAD_REQUEST);
         }
     }
 

@@ -9,10 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/task")
 public class TaskController {
 
     @Autowired
-    private TaskService taskService;// = new TaskService();
+    private TaskService taskService;
 
     @GetMapping("/getTaskById/{id}")
     public Task getTaskByID(@PathVariable int id) {
@@ -20,7 +21,7 @@ public class TaskController {
     }
 
     @PostMapping("/saveTask")
-    public ResponseEntity<Task> saveTask(@RequestBody Task task){
+    public ResponseEntity<Object> saveTask(@RequestBody Task task){
         return taskService.saveTask(task);
     }
 
