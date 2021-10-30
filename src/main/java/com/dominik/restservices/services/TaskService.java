@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-    public Task getTaskById(int id){
+    public Task getTaskById(Long id){
         return taskRepository.findById(id).orElse(null);
     }
 

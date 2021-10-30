@@ -20,7 +20,7 @@ public class Task {
             generator = "generator_task_sequence"
     )
     @Column(name = "id", nullable = false, updatable = false)
-    private int id;
+    private Long id;
 
     @Column(name = "category", nullable = false)
     private String category;
@@ -48,11 +48,11 @@ public class Task {
         this.task_finish_date = task_finish_date;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -1,10 +1,8 @@
 package com.dominik.restservices.controllers;
 
 import com.dominik.restservices.entities.Task;
-import com.dominik.restservices.services.Response;
 import com.dominik.restservices.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +10,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/task")
 public class TaskController {
 
-    @Autowired
     private TaskService taskService;
 
+    @Autowired //annotation not needed, left just for clarity
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
+    }
+
     @GetMapping("/getTaskById/{id}")
-    public Task getTaskByID(@PathVariable int id) {
+    public Task getTaskByID(@PathVariable Long id) {
         return taskService.getTaskById(id);
     }
 
