@@ -2,7 +2,6 @@ package com.dominik.restservices.services;
 
 import com.dominik.restservices.entities.Task;
 import com.dominik.restservices.repository.TaskRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +12,11 @@ import java.util.List;
 @Service
 public class TaskService {
 
-    @Autowired
     private TaskRepository taskRepository;
+
+    public TaskService(TaskRepository taskRepository){
+        this.taskRepository = taskRepository;
+    }
 
     public List<Task> findAll() {
         return taskRepository.findAll();
