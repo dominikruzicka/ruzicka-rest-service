@@ -1,13 +1,10 @@
- !!! - Postman export requests and upload to Github !!!
-
  - make "public List<Employee> getEmployees()" be capable of returning Error as well
 
  - differentiate ErrorResponse return value by methods that return this class (now is the same for all methods "Operation failed")
  - + make better error and valid response structure
+ - send request with many params but in body
 
  - create another DB for production (now have just one for both environments
- -  set correct time in DB for record_created_date (it CR minus 2 hours)
+ - set correct time in DB for record_created_date (it CR minus 2 hours)
 
- - ENTITY_MANAGER_FACTORY -> when to close it?
- - Hibernate vs Spring Data -> differences, which one is better to use?
- - Implement DTO (Data Transfer Object) and check and apply another Enterprise patterns
+ - make validation for mail on DTO level

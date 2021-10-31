@@ -1,13 +1,6 @@
 package com.dominik.restservices.controllers;
 
-import com.dominik.restservices.entities.Employee;
-import com.dominik.restservices.services.EmployeeService;
-import com.dominik.restservices.services.Response;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.web.bind.annotation.*;
-
-import java.sql.Date;
-import java.util.List;
 
 @RestController
 //@RequestMapping("/employees") //add later and edit also postman requests

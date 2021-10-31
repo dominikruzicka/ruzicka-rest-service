@@ -1,7 +1,5 @@
 package com.dominik.restservices.entities;
 
-import com.dominik.restservices.services.Response;
-
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -9,11 +7,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "employee")
-public class Employee implements Serializable, Response {
+public class Employee implements Serializable {
 
     @Id
     @Column(name = "id", nullable = false) //add  'updatable = false' after creatinf ID generator as in Task
-    private int id;
+    private long id;
 
     @Column(name = "first_name", nullable = false)
     private String first_name;
@@ -33,11 +31,11 @@ public class Employee implements Serializable, Response {
     @Column(name = "record_created_date", nullable = true)
     private Timestamp record_created_date; //Is it the best datatype? Check later
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -94,16 +92,6 @@ public class Employee implements Serializable, Response {
                 ", department='" + department + '\'' +
                 ", email='" + email + '\'' +
                 ", record_created_date=" + record_created_date +
-                '}';
-    }
-
-    public String toStringNoColsAddedByDB() {
-        return "Employees{" +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
-                ", birth_date=" + birth_date +
-                ", department='" + department + '\'' +
-                ", email='" + email + '\'' +
                 '}';
     }
 

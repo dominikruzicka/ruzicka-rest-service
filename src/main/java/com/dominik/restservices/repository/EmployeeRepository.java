@@ -4,8 +4,6 @@ import com.dominik.restservices.entities.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
-public interface EmployeeRepositoryNotInUse// extends JpaRepository<Employee, Integer>
-{
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 }

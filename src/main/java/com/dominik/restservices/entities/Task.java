@@ -3,12 +3,13 @@ package com.dominik.restservices.entities;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "task")
-public class Task {
+public class Task implements Serializable {
 
     @Id
     @SequenceGenerator(name = "generator_task_sequence",
@@ -20,7 +21,7 @@ public class Task {
             generator = "generator_task_sequence"
     )
     @Column(name = "id", nullable = false, updatable = false)
-    private Long id;
+    private long id;
 
     @Column(name = "category", nullable = false)
     private String category;

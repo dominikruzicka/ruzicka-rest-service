@@ -3,6 +3,7 @@ package com.dominik.restservices.services;
 import com.dominik.restservices.entities.Task;
 import com.dominik.restservices.repository.TaskRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -12,12 +13,14 @@ import java.util.List;
 @Service
 public class TaskService {
 
-    private TaskRepository taskRepository;
+    private final TaskRepository taskRepository;
 
+    @Autowired
     public TaskService(TaskRepository taskRepository){
         this.taskRepository = taskRepository;
     }
 
+    //reduce items returned to what consumer asks for with max value
     public List<Task> findAll() {
         return taskRepository.findAll();
     }
