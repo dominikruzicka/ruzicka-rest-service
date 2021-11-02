@@ -1,6 +1,6 @@
-package com.dominik.restservices.services;
+package com.dominik.restservices.service;
 
-import com.dominik.restservices.entities.Employee;
+import com.dominik.restservices.entity.Employee;
 import com.dominik.restservices.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

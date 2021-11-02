@@ -1,7 +1,7 @@
-package com.dominik.restservices.controllers;
+package com.dominik.restservices.controller;
 
-import com.dominik.restservices.entities.Employee;
-import com.dominik.restservices.services.EmployeeService;
+import com.dominik.restservices.entity.Employee;
+import com.dominik.restservices.service.EmployeeService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

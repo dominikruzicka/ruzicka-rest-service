@@ -1,7 +1,6 @@
-package com.dominik.restservices.dtos;
+package com.dominik.restservices.dto;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 
 public class TaskDTO {
 

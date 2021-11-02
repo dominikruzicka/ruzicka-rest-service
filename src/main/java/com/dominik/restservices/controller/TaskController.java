@@ -1,8 +1,7 @@
-package com.dominik.restservices.controllers;
+package com.dominik.restservices.controller;
 
-import com.dominik.restservices.dtos.TaskDTO;
-import com.dominik.restservices.entities.Task;
-import com.dominik.restservices.services.TaskService;
+import com.dominik.restservices.entity.Task;
+import com.dominik.restservices.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

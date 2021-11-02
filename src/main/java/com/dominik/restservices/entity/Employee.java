@@ -1,4 +1,4 @@
-package com.dominik.restservices.entities;
+package com.dominik.restservices.entity;
 
 import java.io.Serializable;
 import java.sql.Date;

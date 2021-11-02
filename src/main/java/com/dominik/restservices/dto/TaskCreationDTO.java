@@ -1,10 +1,6 @@
-package com.dominik.restservices.dtos;
+package com.dominik.restservices.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import javax.persistence.Column;
 import java.sql.Date;
-import java.sql.Timestamp;
 
 public class TaskCreationDTO {
 

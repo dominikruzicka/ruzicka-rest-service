@@ -1,4 +1,4 @@
-package com.dominik.restservices.entities;
+package com.dominik.restservices.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
