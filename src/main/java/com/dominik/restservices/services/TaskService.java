@@ -1,5 +1,6 @@
 package com.dominik.restservices.services;
 
+import com.dominik.restservices.dtos.TaskDTO;
 import com.dominik.restservices.entities.Task;
 import com.dominik.restservices.repository.TaskRepository;
 
@@ -8,7 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TaskService {
@@ -25,8 +30,19 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-    public Task getTaskById(Long id){
-        return taskRepository.findById(id).orElse(null);
+    public ResponseEntity<Object> getTaskById(Long id) {
+        // return taskRepository.findById(id).orElse(null);
+        Task task = taskRepository.findById(id).orElse(null);
+        TaskDTO taskDTO = null;
+        if (task != null) {
+            taskDTO = convertToTaskDTO(task);
+            return ResponseEntity.ok(taskDTO);
+        } else {
+            String responseBody = "Requested ID " + id + " was not found";
+            return new ResponseEntity(responseBody, HttpStatus.BAD_REQUEST);
+
+        }
+
     }
 
     public ResponseEntity<Object> saveTask(Task task){
@@ -43,5 +59,18 @@ public class TaskService {
             return new ResponseEntity(responseBody, HttpStatus.BAD_REQUEST);
         }
     }
+
+    private TaskDTO convertToTaskDTO(Task task){
+            TaskDTO taskDTO = new TaskDTO();
+
+            if (task != null) {
+                taskDTO.setId(task.getId());
+                taskDTO.setCategory(task.getCategory());
+                taskDTO.setDescription(task.getDescription());
+                taskDTO.setAssigned_emp(task.getAssigned_emp());
+                taskDTO.setTask_finish_date(task.getTask_finish_date());
+            }
+            return taskDTO;
+        }
 
 }
