@@ -39,6 +39,7 @@ public class TaskService {
         }
     }
 
+    //Use Mapper for DTO -> DAO
     public ResponseEntity<Object> saveTask(Task task){
        String responseBody;
         if(task.getCategory() != null
@@ -49,7 +50,7 @@ public class TaskService {
             responseBody = "Task successfully saved with id: " + task.getId();
             return ResponseEntity.ok(responseBody);
         } else {
-            responseBody = "Incorrect request - validate your request body";
+            responseBody = "Incorrect request - one or more required elements missing";
             return new ResponseEntity(responseBody, HttpStatus.BAD_REQUEST);
         }
     }

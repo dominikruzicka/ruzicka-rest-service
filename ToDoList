@@ -1,0 +1,17 @@
+ - Employee -> implement delete, put and post methods (formerly implemented without using spring JPA (using plain SQL), then deleted and wasnt replaced yet)
+
+ - Employee class -> create ID generator as in Task class
+
+ - public List<Task> findAll()  -> reduce items returned to what consumer asks for with default max value
+
+ - TaskService -> saveTask() -> use Mapper
+
+ - one to many relationship between Employee and Task -> apply logic
+
+ - create validation for mail
+
+ - DB -> create another DB for production (now have just one for both environments)
+
+ - CICD -> create CICD pipeline using Jenkins (use SonarQube, etc.)
+
+ - understand computers (checking if anyone reads it all the way down here :) )

@@ -20,7 +20,7 @@ public class Employee implements Serializable {
     private String last_name;
 
     @Column(name = "birth_date", nullable = false)
-    private Date birth_date;  //Is it the best datatype? Check later
+    private Date birth_date;
 
     @Column(name = "department", nullable = false)
     private String department;
@@ -29,7 +29,7 @@ public class Employee implements Serializable {
     private String email;
 
     @Column(name = "record_created_date", nullable = true)
-    private Timestamp record_created_date; //Is it the best datatype? Check later
+    private Timestamp record_created_date;
 
     public long getId() {
         return id;

@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "b74f61c3-a71d-4513-b93c-a202c5f5c7c2",
+		"name": "RUZICKA-REST-SERVICES",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TASK",
+			"item": [
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "saveTask",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"category\":\"C\",\r\n        \"description\":\"CCC\",\r\n        \"assigned_emp\":\"222\",\r\n        \"task_finish_date\":\"2021-10-20\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ENVIRONMENT_VAR}}/task/saveTask",
+									"host": [
+										"{{ENVIRONMENT_VAR}}"
+									],
+									"path": [
+										"task",
+										"saveTask"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "saveTask-Error->without required element",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"category\":\"C\",\r\n        \"description\":\"CCC\",\r\n        \"task_finish_date\":\"2021-10-20\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ENVIRONMENT_VAR}}/task/saveTask",
+									"host": [
+										"{{ENVIRONMENT_VAR}}"
+									],
+									"path": [
+										"task",
+										"saveTask"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "getTaskById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENVIRONMENT_VAR}}/task/getTaskById/1",
+									"host": [
+										"{{ENVIRONMENT_VAR}}"
+									],
+									"path": [
+										"task",
+										"getTaskById",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getTaskById (check \"not found\" response)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENVIRONMENT_VAR}}/task/getTaskById/1000000",
+									"host": [
+										"{{ENVIRONMENT_VAR}}"
+									],
+									"path": [
+										"task",
+										"getTaskById",
+										"1000000"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "EMPLOYEE",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "getEmployeeById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENVIRONMENT_VAR}}/employee/getEmployeeById/225\n",
+									"host": [
+										"{{ENVIRONMENT_VAR}}"
+									],
+									"path": [
+										"employee",
+										"getEmployeeById",
+										"225\n"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getEmployeeById (check \"not found\" response)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENVIRONMENT_VAR}}/employee/getEmployeeById/22500",
+									"host": [
+										"{{ENVIRONMENT_VAR}}"
+									],
+									"path": [
+										"employee",
+										"getEmployeeById",
+										"22500"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DEL",
+					"item": []
+				},
+				{
+					"name": "PUT",
+					"item": []
+				},
+				{
+					"name": "POST",
+					"item": []
+				}
+			]
+		}
+	]
+}

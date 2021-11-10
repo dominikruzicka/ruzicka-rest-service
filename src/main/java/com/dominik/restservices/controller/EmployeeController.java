@@ -2,6 +2,7 @@ package com.dominik.restservices.controller;
 
 import com.dominik.restservices.entity.Employee;
 import com.dominik.restservices.service.EmployeeService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,7 +16,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/getEmployeeById/{id}")
-    public Employee getEmployeeById(@PathVariable Long id){
+    public ResponseEntity<Object> getEmployeeById(@PathVariable Long id){
         return employeeService.getEmployeeById(id);
     }
 
